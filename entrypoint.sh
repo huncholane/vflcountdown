@@ -1,4 +1,4 @@
 #!/bin/bash
+sudo apt update
 echo `id`
-nvm use 18.2.0
 echo `node -v`
