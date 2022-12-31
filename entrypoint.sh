@@ -1,3 +1,3 @@
-#!/bin/bash
+#!~/.bash
 npm install
 npm run build
