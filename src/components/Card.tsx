@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TimeBlock from "./TimeBlock";
 import { schedule } from "../assets/schedule.json";
 import convertMiliseconds from "./convertInterval";
+import { Helmet } from "react-helmet";
 const { games } = schedule;
 
 type Props = {
@@ -35,6 +36,14 @@ const Card = (props: Props) => {
 
   return (
     <div className="h-screen w-screen">
+      <Helmet>
+        <meta property="og:image" content="/favicon.ico" />
+        <meta property="og:image:secure_url" content="/favicon.ico" />
+        <meta property="og:image:type" content="image/x-icon" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300" />
+        <meta property="og:image:alt" content="Tennessee Vols" />
+      </Helmet>
       <div className="absolute px-1 mx-auto w-11/12 right-0 left-0 bg-slate-400 top-16 bg-opacity-40 rounded-md shadow-sm">
         <div className="flex">
           <TimeBlock value={days} unit="DAYS" />
