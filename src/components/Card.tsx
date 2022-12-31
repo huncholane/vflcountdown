@@ -2,50 +2,41 @@ import React, { useState } from "react";
 import TimeBlock from "./TimeBlock";
 import { schedule } from "../assets/schedule.json";
 import convertMiliseconds from "./convertInterval";
-import { Helmet } from "react-helmet";
 const { games } = schedule;
+
+const nextGame = () => {
+  return games[0];
+};
 
 type Props = {
   children?: React.ReactNode;
 };
 
 const Card = (props: Props) => {
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-  const description = "Countdown Till The Vols Get To Ball";
-
-  const nextGame = () => {
-    return games[0];
-  };
-
   const game = nextGame();
   const date = new Date(game.date);
   const time = game.time;
-
-  setInterval(() => {
+  const getDiff = () => {
     const now = new Date();
     const ms = date.getTime() - now.getTime();
     const diff = convertMiliseconds(ms);
-    setDays(diff.d);
-    setHours(diff.h);
-    setMinutes(diff.m);
-    setSeconds(diff.s);
+    document.title = `${diff.d}:${diff.h}:${diff.m}:${diff.s}`;
+    return diff;
+  };
+  const [countdown, setCountdown] = useState(getDiff());
+
+  setInterval(() => {
+    setCountdown(getDiff());
   }, 1000);
 
   return (
     <div className="h-screen w-screen">
-      <Helmet>
-        <title>Helmet</title>
-        <meta property="og:title" content="Helmet" />
-      </Helmet>
       <div className="absolute px-1 mx-auto w-11/12 right-0 left-0 bg-slate-400 top-16 bg-opacity-40 rounded-md shadow-sm">
         <div className="flex">
-          <TimeBlock value={days} unit="DAYS" />
-          <TimeBlock value={hours} unit="HOURS" />
-          <TimeBlock value={minutes} unit="MINS" />
-          <TimeBlock value={seconds} unit="SECS" />
+          <TimeBlock value={countdown.d} unit="DAYS" />
+          <TimeBlock value={countdown.h} unit="HOURS" />
+          <TimeBlock value={countdown.m} unit="MINS" />
+          <TimeBlock value={countdown.s} unit="SECS" />
         </div>
         <div className="flex justify-between w-full">
           <img
