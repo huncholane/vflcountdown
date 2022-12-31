@@ -14,6 +14,7 @@ const Card = (props: Props) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  const description = "Countdown Till The Vols Get To Ball";
 
   const nextGame = () => {
     return games[0];
@@ -37,12 +38,12 @@ const Card = (props: Props) => {
     <div className="h-screen w-screen">
       <Helmet>
         <title>VFL Countdown</title>
-        <meta name="description" content="undefined" />
+        <meta name="description" content={description} />
         <meta property="og:url" content="https://vflcountdown.com" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Countdown" />
         <meta property="og:description" content="undefined" />
-        <meta property="og:image" content="" />
+        <meta property="og:image" content="/favicon.ico" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="vflcountdown.com" />
         <meta property="twitter:url" content="https://vflcountdown.com" />
