@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TimeBlock from "./TimeBlock";
 import { schedule } from "../assets/schedule.json";
+import Moment from "react-moment";
 const { games } = schedule;
 
 type Props = {
@@ -19,15 +20,42 @@ const Card = (props: Props) => {
   };
 
   const game = nextGame();
+  const date = new Date(game.date);
+  const time = game.time;
+  console.log(date);
+
+  setInterval(() => {
+    const now = new Date();
+    const diff = date.getTime() - now.getTime();
+  }, 1000);
 
   return (
-    <div className="h-screen w-screen relative">
-      <div className="absolute mx-auto w-11/12 h-56 right-0 left-0 bg-slate-400 top-16 opacity-40 rounded-md shadow-sm"></div>
-      <div className="absolute mx-auto w-11/12 h-28 right-0 left-0 top-16 flex px-1">
-        <TimeBlock value={days} unit="DAYS" />
-        <TimeBlock value={hours} unit="HOURS" />
-        <TimeBlock value={minutes} unit="MINS" />
-        <TimeBlock value={minutes} unit="SECS" />
+    <div className="h-screen w-screen">
+      <div className="absolute px-1 mx-auto w-11/12 right-0 left-0 bg-slate-400 top-16 bg-opacity-40 rounded-md shadow-sm">
+        <div className="flex">
+          <TimeBlock value={days} unit="DAYS" />
+          <TimeBlock value={hours} unit="HOURS" />
+          <TimeBlock value={minutes} unit="MINS" />
+          <TimeBlock value={seconds} unit="SECS" />
+        </div>
+        <div className="flex justify-between w-full">
+          <img
+            src={game.opponent.image.fullpath}
+            alt={game.opponent.title}
+            className="w-16"
+          />
+          <div>
+            <div className="text-center text-xl">
+              {game.at_vs}{" "}
+              <span className="text-lg">{game.opponent.title}</span>
+            </div>
+            <div className="text-center text-md">
+              {date.toLocaleDateString() + " - " + time}
+            </div>
+            <div className="text-center text-lg">{game.facility?.title}</div>
+          </div>
+          <img src="/favicon.ico" alt="Tennessee" className="w-16" />
+        </div>
       </div>
     </div>
   );
