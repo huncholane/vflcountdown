@@ -1,4 +1,5 @@
 #!/bin/bash
-
-npm install
-npm run build
+source /home/ubuntu/.bashrc
+echo $HOME
+$node=echo `which node`
+node -v
