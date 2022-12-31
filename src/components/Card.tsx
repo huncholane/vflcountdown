@@ -10,7 +10,6 @@ type Props = {
 };
 
 const Card = (props: Props) => {
-  console.log(games);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
@@ -46,13 +45,11 @@ const Card = (props: Props) => {
 
         <title>VFL Countdown</title>
         <meta name="description" content="undefined" />
-
         <meta property="og:url" content="https://vflcountdown.com" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Countdown" />
         <meta property="og:description" content="undefined" />
         <meta property="og:image" content="" />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="vflcountdown.com" />
         <meta property="twitter:url" content="https://vflcountdown.com" />
