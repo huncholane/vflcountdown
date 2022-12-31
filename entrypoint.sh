@@ -1,4 +1,4 @@
 #!/bin/bash
 source /home/ubuntu/.bashrc
-$node=`which node`
+$node=`which npm`
 npm -v
