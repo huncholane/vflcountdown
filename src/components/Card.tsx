@@ -16,7 +16,7 @@ const Card = (props: Props) => {
   const [seconds, setSeconds] = useState(0);
 
   const nextGame = () => {
-    return games[0];
+    return games[1];
   };
 
   const game = nextGame();
