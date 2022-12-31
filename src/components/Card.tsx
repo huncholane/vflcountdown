@@ -43,6 +43,22 @@ const Card = (props: Props) => {
         <meta property="og:image:width" content="300" />
         <meta property="og:image:height" content="300" />
         <meta property="og:image:alt" content="Tennessee Vols" />
+
+        <title>VFL Countdown</title>
+        <meta name="description" content="undefined" />
+
+        <meta property="og:url" content="https://vflcountdown.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Countdown" />
+        <meta property="og:description" content="undefined" />
+        <meta property="og:image" content="" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="vflcountdown.com" />
+        <meta property="twitter:url" content="https://vflcountdown.com" />
+        <meta name="twitter:title" content="Countdown" />
+        <meta name="twitter:description" content="undefined" />
+        <meta name="twitter:image" content="" />
       </Helmet>
       <div className="absolute px-1 mx-auto w-11/12 right-0 left-0 bg-slate-400 top-16 bg-opacity-40 rounded-md shadow-sm">
         <div className="flex">
