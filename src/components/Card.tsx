@@ -36,7 +36,9 @@ const Card = (props: Props) => {
 
   return (
     <div className="h-screen w-screen">
-      <Helmet></Helmet>
+      <Helmet>
+        <title>Helmet</title>
+      </Helmet>
       <div className="absolute px-1 mx-auto w-11/12 right-0 left-0 bg-slate-400 top-16 bg-opacity-40 rounded-md shadow-sm">
         <div className="flex">
           <TimeBlock value={days} unit="DAYS" />
