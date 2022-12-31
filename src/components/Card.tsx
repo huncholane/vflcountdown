@@ -36,13 +36,6 @@ const Card = (props: Props) => {
   return (
     <div className="h-screen w-screen">
       <Helmet>
-        <meta property="og:image" content="/favicon.ico" />
-        <meta property="og:image:secure_url" content="/favicon.ico" />
-        <meta property="og:image:type" content="image/x-icon" />
-        <meta property="og:image:width" content="300" />
-        <meta property="og:image:height" content="300" />
-        <meta property="og:image:alt" content="Tennessee Vols" />
-
         <title>VFL Countdown</title>
         <meta name="description" content="undefined" />
         <meta property="og:url" content="https://vflcountdown.com" />
