@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TimeBlock from "./TimeBlock";
 import { schedule } from "../assets/schedule.json";
-import Moment from "react-moment";
+import convertMiliseconds from "./convertInterval";
 const { games } = schedule;
 
 type Props = {
@@ -22,11 +22,15 @@ const Card = (props: Props) => {
   const game = nextGame();
   const date = new Date(game.date);
   const time = game.time;
-  console.log(date);
 
   setInterval(() => {
     const now = new Date();
-    const diff = date.getTime() - now.getTime();
+    const ms = date.getTime() - now.getTime();
+    const diff = convertMiliseconds(ms);
+    setDays(diff.d);
+    setHours(diff.h);
+    setMinutes(diff.m);
+    setSeconds(diff.s);
   }, 1000);
 
   return (
