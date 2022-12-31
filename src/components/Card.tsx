@@ -38,6 +38,7 @@ const Card = (props: Props) => {
     <div className="h-screen w-screen">
       <Helmet>
         <title>Helmet</title>
+        <meta property="og:title" content="Helmet" />
       </Helmet>
       <div className="absolute px-1 mx-auto w-11/12 right-0 left-0 bg-slate-400 top-16 bg-opacity-40 rounded-md shadow-sm">
         <div className="flex">
